@@ -39,6 +39,7 @@ local testdata = torch.load(arg[2])
 -- add Softmax layer
 model:add(softMaxLayer)
 
+print(model)
 -- Evaluate mode
 model:evaluate()
 
@@ -59,7 +60,7 @@ local features
 local N = 5
 
 -- for i=2,#testdata['image'] do
-for i=1,20 do
+for i=1,2 do
    -- load the image as a RGB float tensor with values 0..1
    local img = image.load(testdata['image'][i], 3, 'float')
    local name = testdata['name'][i]

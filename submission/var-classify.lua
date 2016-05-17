@@ -83,7 +83,7 @@ for i=1,#testdata['name'] do
    for i=1,mu:size(2) do
       
       
-      file:write(mu[1][i] ..' , ' )
+      file:write(mu[1][i] ..' ,' )
    end
    file:write(name ..'\n')
 end
