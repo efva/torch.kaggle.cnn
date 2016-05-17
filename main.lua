@@ -63,8 +63,12 @@ for epoch = startEpoch, opt.nEpochs do
       bestTop5 = testTop5
       print(' * Best model ', testTop1, testTop5)
    end
+   if epoch % 3==0 then 
+      checkpoints.save(epoch, model, trainer.optimState, nil)
+   end
 
-   checkpoints.save(epoch, model, trainer.optimState, bestModel)
+   torch.save('checkpoint/model_best.t7', model)
+
 end
 
 print(string.format(' * Finished top1: %6.3f  top5: %6.3f', bestTop1, bestTop5))

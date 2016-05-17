@@ -43,7 +43,9 @@ function Trainer:train(epoch, dataloader)
    local trainSize = dataloader:size()
    local top1Sum, top3Sum, lossSum = 0.0, 0.0, 0.0
    local N = 0
-
+   --'c0','c1','c2','c3','c4','c5','c6','c7','c8','c9'
+   local conf = optim.ConfusionMatrix( {1,2,3,4,5,6,7,8,9,10} ) 
+   conf:zero()
    print('=> Training epoch # ' .. epoch)
    -- set the batch norm to training mode
    self.model:training()
@@ -67,7 +69,10 @@ function Trainer:train(epoch, dataloader)
       top3Sum = top3Sum + top3
       lossSum = lossSum + loss
       N = N + 1
-
+      for i=1,output:size(1) do
+         conf:add(output[i], sample.target[i])
+      end
+      
       print((' | Epoch: [%d][%d/%d]    Time %.3f  Data %.3f  Err %1.4f  top1 %7.3f  top3 %7.3f'):format(
          epoch, n, trainSize, timer:time().real, dataTime, loss, top1, top3))
 
@@ -77,6 +82,7 @@ function Trainer:train(epoch, dataloader)
       timer:reset()
       dataTimer:reset()
    end
+   print(conf)
 
    return top1Sum / N, top3Sum / N, lossSum / N
 end
