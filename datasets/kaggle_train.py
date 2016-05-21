@@ -60,8 +60,8 @@ for i in range(10):
     imgs = glob.glob('/home/stathis/data/kaggle/imgs/train/c'+str(i)+'/*.jpg')
     imagePath.extend(imgs)
     imageClass.extend([i]*len(imgs))
-    for names in imgs:
-        names.append(filename.split('/')[-1])
+    for name in imgs:
+        names.append(name.split('/')[-1])
 
 
 train_index = select_drivers(filenames, unique_list_train, info)
