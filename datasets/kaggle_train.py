@@ -64,8 +64,8 @@ for i in range(10):
         names.append(name.split('/')[-1])
 
 
-train_index = select_drivers(filenames, unique_list_train, info)
-valid_index = select_drivers(filenames, unique_list_valid, info)
+train_index = select_drivers(names, unique_list_train, info)
+valid_index = select_drivers(names, unique_list_valid, info)
 
 imagePath = np.array(imagePath)
 imageClass = np.array(imageClass)
