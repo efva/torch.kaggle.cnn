@@ -2,7 +2,7 @@ import h5py
 import glob
 import json
 import numpy as np
-
+import os
 
 ALL_DRIVERS =np.array(['p012', 'p014', 'p015', 'p016', 'p021', 'p022', 'p024',
                        'p026', 'p035', 'p039', 'p041', 'p042', 'p045', 'p047', 'p049',
@@ -11,7 +11,7 @@ ALL_DRIVERS =np.array(['p012', 'p014', 'p015', 'p016', 'p021', 'p022', 'p024',
    
 def get_driver_data():
     dr = dict()
-    path = os.path.join('driver_imgs_list.csv')
+    path = 'driver_imgs_list.csv'
     print('Read drivers data')
     f = open(path, 'r')
     line = f.readline()
