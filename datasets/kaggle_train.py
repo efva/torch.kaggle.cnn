@@ -75,11 +75,11 @@ dbfile = dict()
 dbfile['basedir'] = ''
 dbfile['classList'] = ['c0','c1','c2','c3','c4','c5', 'c6', 'c7', 'c8', 'c9']
 dbfile['train'] = dict()
-dbfile['train']['imagePath'] = imagePath[train_index]
-dbfile['train']['imageClass'] = imageClass[train_index]
+dbfile['train']['imagePath'] = list(imagePath[train_index])
+dbfile['train']['imageClass'] = list(imageClass[train_index])
 dbfile['val'] = dict()
-dbfile['val']['imagePath'] = imagePath[valid_index]
-dbfile['val']['imageClass'] = imageClass[valid_index]
+dbfile['val']['imagePath'] = list(imagePath[valid_index])
+dbfile['val']['imageClass'] = list(imageClass[valid_index])
 
 
 json.dump(dbfile,open('split.json','w'))
