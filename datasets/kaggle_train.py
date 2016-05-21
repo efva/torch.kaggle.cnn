@@ -51,6 +51,7 @@ split["valid"] = [22, 24, 21, 14, 2,  6]
 unique_list_train = ALL_DRIVERS[split['train']]
 unique_list_valid = ALL_DRIVERS[split['valid']]
 
+info = get_driver_data()
 
 imagePath = []
 imageClass = []
